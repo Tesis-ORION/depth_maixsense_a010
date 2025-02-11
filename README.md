@@ -20,7 +20,9 @@ Package for depth camera MaixSense A010 in ROS Humble
 **depth maixsense a010** is a package for ROS2 Humble that allow us to use MaixSense A010 depth camera. This package was originally made by <a href="https://github.com/sipeed/MaixSense_ROS/">Sipeed</a> so all credits to them, we only fixed the package to be compatible with humble as it had errors, and created a launch file to simplify launched the camera node with rviz.
 
 ## 🎥 Demostration
-TODO: Upload the video
+https://github.com/user-attachments/assets/b3696c4a-1d94-4272-9a09-7452982fdfef
+
+
 
 ## 📝 How to Build
 
