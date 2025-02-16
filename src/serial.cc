@@ -62,6 +62,15 @@ const std::vector<uint8_t> Serial::readBytes() const {
       0) {
     bytes_readed = 0;
   }
+
+  if (bytes_readed > sizeof(read_buf)) {
+    bytes_readed = sizeof(read_buf);  // Cap bytes_readed to the buffer size
+  }
+
+  if (bytes_readed > sizeof(read_buf)) {
+    bytes_readed = sizeof(read_buf);
+  }
+
   return std::vector<uint8_t>(read_buf, read_buf + bytes_readed);
 }
 

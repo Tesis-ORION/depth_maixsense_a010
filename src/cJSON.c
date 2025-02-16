@@ -44,6 +44,7 @@
 #include <limits.h>
 #include <ctype.h>
 #include <float.h>
+#include <stddef.h>
 
 #ifdef ENABLE_LOCALES
 #include <locale.h>
@@ -521,17 +522,18 @@ static unsigned char* ensure(printbuffer * const p, size_t needed)
     return newbuffer + p->offset;
 }
 
-/* calculate the new length of the string in a printbuffer and update the offset */
 static void update_offset(printbuffer * const buffer)
 {
-    const unsigned char *buffer_pointer = NULL;
     if ((buffer == NULL) || (buffer->buffer == NULL))
     {
-        return;
+        return;  // Handle invalid buffer
     }
-    buffer_pointer = buffer->buffer + buffer->offset;
 
-    buffer->offset += strlen((const char*)buffer_pointer);
+    // Calculate the length of the string starting at the current offset
+    size_t length = strlen((const char*)(buffer->buffer + buffer->offset));
+
+    // Update the offset
+    buffer->offset += length;
 }
 
 /* securely comparison of floating-point variables */
